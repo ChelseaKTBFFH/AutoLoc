@@ -56,11 +56,9 @@ public class Vehicule {
     )
     private List<Equipement> equipements = new ArrayList<>();
 
-    // 1 Vehicule -> N Maintenance
     @OneToMany(mappedBy = "vehicule", fetch = FetchType.LAZY)
     private List<Maintenance> maintenances = new ArrayList<>();
 
-    // 1 Vehicule -> N Reservation
     @OneToMany(mappedBy = "vehicule", fetch = FetchType.LAZY)
     private List<Reservation> reservations = new ArrayList<>();
 }

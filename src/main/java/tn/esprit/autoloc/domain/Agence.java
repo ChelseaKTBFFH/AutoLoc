@@ -33,11 +33,9 @@ public class Agence {
     @Column(length = 20)
     private String telephone;
 
-    // 1 Agence -> N Vehicule : pas de cascade (supprimer une agence ne supprime pas ses vehicules)
     @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
     private List<Vehicule> vehicules = new ArrayList<>();
 
-    // 1 Agence -> N Employe
     @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
     private List<Employe> employes = new ArrayList<>();
 }

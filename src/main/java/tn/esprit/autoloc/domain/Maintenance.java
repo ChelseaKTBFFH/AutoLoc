@@ -28,7 +28,6 @@ public class Maintenance {
     @Column(length = 255)
     private String description;
 
-    // N Maintenance -> 1 Vehicule, cascade PERSIST (selon le tableau de l'etude de cas)
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_vehicule", nullable = false)
     private Vehicule vehicule;
