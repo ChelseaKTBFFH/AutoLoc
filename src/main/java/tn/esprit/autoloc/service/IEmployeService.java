@@ -15,4 +15,10 @@ public interface IEmployeService {
     Employe update(Employe employe);
 
     void delete(Long id);
+
+    // Mutation : retirer l'employe de son agence actuelle
+    Employe desaffecterEmploye(Long idEmploye);
+
+    // Mutation : affecter l'employe a une nouvelle agence
+    Employe affecterEmploye(Long idEmploye, Long idAgence);
 }
