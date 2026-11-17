@@ -15,4 +15,9 @@ public interface IVehiculeService {
     Vehicule update(Vehicule vehicule);
 
     void delete(Long id);
+
+    // Scenario 3 : affecter / desaffecter un equipement a un vehicule (@ManyToMany)
+    Vehicule affecterEquipement(Long idVehicule, Long idEquipement);
+
+    Vehicule desaffecterEquipement(Long idVehicule, Long idEquipement);
 }

@@ -36,7 +36,8 @@ public class Agence {
     @Column(length = 20)
     private String telephone;
 
-    @JsonIgnore
+    // Lu depuis le JSON (ajout agence + vehicules) ; "agence" ignore pour eviter la boucle infinie
+    @JsonIgnoreProperties({"agence", "hibernateLazyInitializer", "handler"})
     @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
     private List<Vehicule> vehicules = new ArrayList<>();
 

@@ -39,13 +39,11 @@ public class EmployeController {
         employeService.delete(id);
     }
 
-    // Etape 1 de la mutation : PUT /employes/{idEmploye}/desaffecter
     @PutMapping("/{idEmploye}/desaffecter")
     public Employe desaffecterEmploye(@PathVariable Long idEmploye) {
         return employeService.desaffecterEmploye(idEmploye);
     }
 
-    // Etape 2 de la mutation : PUT /employes/{idEmploye}/affecter/{idAgence}
     @PutMapping("/{idEmploye}/affecter/{idAgence}")
     public Employe affecterEmploye(@PathVariable Long idEmploye, @PathVariable Long idAgence) {
         return employeService.affecterEmploye(idEmploye, idAgence);
