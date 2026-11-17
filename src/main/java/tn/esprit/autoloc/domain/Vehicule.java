@@ -46,6 +46,8 @@ public class Vehicule {
     private StatutVehicule statut;
 
     // N Vehicule -> 1 Agence (cote proprietaire : porte la cle etrangere id_agence)
+    // "vehicules" ignore ici pour ne pas reafficher la liste des vehicules de l'agence (reponse lisible, pas de boucle)
+    @JsonIgnoreProperties({"vehicules", "hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_agence")
     private Agence agence;
