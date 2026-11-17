@@ -2,6 +2,7 @@ package tn.esprit.autoloc.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -46,8 +47,9 @@ public class Vehicule {
     private StatutVehicule statut;
 
     // N Vehicule -> 1 Agence (cote proprietaire : porte la cle etrangere id_agence)
-    // "vehicules" ignore ici pour ne pas reafficher la liste des vehicules de l'agence (reponse lisible, pas de boucle)
-    @JsonIgnoreProperties({"vehicules", "hibernateLazyInitializer", "handler"})
+    // On n'affiche que les champs simples de l'agence (pas sa liste de vehicules) : reponse lisible, pas de boucle.
+    // @JsonIncludeProperties (et non @JsonIgnoreProperties) pour que Swagger garde le schema Agence complet.
+    @JsonIncludeProperties({"idAgence", "nom", "ville", "adresse", "telephone"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_agence")
     private Agence agence;
